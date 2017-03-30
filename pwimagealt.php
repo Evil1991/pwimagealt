@@ -8,7 +8,7 @@ class pwimagealt extends Module
     {
         $this->name = 'pwimagealt';
         $this->tab = 'other';
-        $this->version = '0.2.1';
+        $this->version = '0.2.2';
         $this->author = 'PrestaWeb.ru';
         $this->need_instance = 0;
         $this->bootstrap = true;
@@ -72,8 +72,9 @@ class pwimagealt extends Module
                 $content = str_replace('<img', '<img '.$new_str, $content);
                 $content = str_replace('{include file="./', '{include file="$tpl_dir./', $content); //типа фикс
             }
-            file_put_contents($new, $content);
-            Configuration::updateValue('PW_IMAGEALT_CACHE_PRODUCT', $last_modified);
+            if (file_put_contents($new, $content) !== false) {
+                Configuration::updateValue('PW_IMAGEALT_CACHE_PRODUCT', $last_modified);
+            }
         }
     }
     
@@ -95,8 +96,9 @@ class pwimagealt extends Module
                 $content = str_replace('<img', '<img '.$new_str, $content);
                 $content = str_replace('{include file="./', '{include file="$tpl_dir./', $content); //типа фикс
             }
-            file_put_contents($new, $content);
-            Configuration::updateValue('PW_IMAGEALT_CACHE_CATEGORY', $last_modified);
+            if (file_put_contents($new, $content) !== false) {
+                Configuration::updateValue('PW_IMAGEALT_CACHE_CATEGORY', $last_modified);
+            }
         }
     }
     

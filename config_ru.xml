@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<module>
+	<name>pwimagealt</name>
+	<displayName><![CDATA[Alt, Title для картинок]]></displayName>
+	<version><![CDATA[0.2.1]]></version>
+	<description><![CDATA[Alt, Title для картинок]]></description>
+	<author><![CDATA[PrestaWeb.ru]]></author>
+	<tab><![CDATA[other]]></tab>
+	<is_configurable>1</is_configurable>
+	<need_instance>0</need_instance>
+	<limited_countries></limited_countries>
+</module>

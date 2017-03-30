@@ -8,7 +8,7 @@ class pwimagealt extends Module
     {
         $this->name = 'pwimagealt';
         $this->tab = 'other';
-        $this->version = '0.2.3';
+        $this->version = '0.2.4';
         $this->author = 'PrestaWeb.ru';
         $this->need_instance = 0;
         $this->bootstrap = true;
@@ -19,6 +19,14 @@ class pwimagealt extends Module
         $this->description = $this->l("Alt, Title для картинок");
         
         $this->ps_versions_compliancy = array('min' => '1.5.0.0', 'max' => _PS_VERSION_);
+    }
+    
+    //На случай, если заливается новый модуль с левыми шаблонами - чтобы они перегенерировались
+    public static function upgradeModuleVersion($name, $version)
+    {
+        Configuration::deleteByName('PW_IMAGEALT_CACHE_CATEGORY');
+        Configuration::deleteByName('PW_IMAGEALT_CACHE_PRODUCT');
+        return parent::upgradeModuleVersion($name, $version);
     }
 
     public function install()

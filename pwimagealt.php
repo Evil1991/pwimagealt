@@ -8,7 +8,7 @@ class pwimagealt extends Module
     {
         $this->name = 'pwimagealt';
         $this->tab = 'other';
-        $this->version = '0.2.4';
+        $this->version = '0.2.5';
         $this->author = 'PrestaWeb.ru';
         $this->need_instance = 0;
         $this->bootstrap = true;
@@ -213,6 +213,8 @@ class pwimagealt extends Module
     {
         if (Tools::isSubmit('submitPWIMAGEALT'))
         {
+            Configuration::deleteByName('PW_IMAGEALT_CACHE_CATEGORY');
+            Configuration::deleteByName('PW_IMAGEALT_CACHE_PRODUCT');
             Configuration::updateValue('PW_IMAGEALT_CATEGORY', Tools::getValue('PW_IMAGEALT_CATEGORY'));
             Configuration::updateValue('PW_IMAGEALT_PRODUCT', Tools::getValue('PW_IMAGEALT_PRODUCT'));
         }
